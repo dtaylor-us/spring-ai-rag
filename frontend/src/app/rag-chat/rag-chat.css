@@ -150,7 +150,6 @@ header {
   background: #006fe0;
 }
 
-.chat-controls {
-  text-align: center;
-  margin-left: 200px;
+#clear-history-btn {
+    background-color: rgb(51, 51, 55);
 }

@@ -20,12 +20,9 @@
     Upload PDF
   </button>
   <div *ngIf="uploading">Uploading: {{ uploadProgress }}%</div>
-  <div class="chat-controls">
-    <button class="styled-button" (click)="clearHistory()">
-      Clear Chat History
-    </button>
-  </div>
-
+  <button class="styled-button" id="clear-history-btn" (click)="clearHistory()">
+    Clear Chat History
+  </button>
 </section>
 
 <div class="chat-container">
