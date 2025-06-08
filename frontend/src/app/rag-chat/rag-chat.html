@@ -1,0 +1,39 @@
+<header class="page-header">
+  <h1>Spring AI Document Assistant</h1>
+  <p>Upload PDFs and chat with your documents using AI.</p>
+</header>
+
+<section class="upload-section">
+  <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="application/pdf" hidden />
+  <label class="styled-button" for="fileInput">Choose PDF</label>
+  <button class="styled-button" [disabled]="!selectedFile || uploading" (click)="onUpload()">Upload PDF</button>
+  <div *ngIf="uploading">Uploading: {{ uploadProgress }}%</div>
+</section>
+
+<div class="chat-container">
+  <div class="chat-window" #chatWindow>
+    <div
+      *ngFor="let msg of messages()"
+      [ngClass]="{
+        'user-msg': msg.sender === 'user',
+        'bot-msg': msg.sender === 'bot',
+        'typing': msg.sender === 'bot' && msg.text === '...'
+      }"
+      class="chat-bubble"
+    >
+      <div class="message">{{ msg.text }}</div>
+    </div>
+  </div>
+
+  <form class="chat-input" (ngSubmit)="sendMessage()">
+    <input
+      type="text"
+      [ngModel]="question()"
+      (ngModelChange)="question.set($event)"
+      name="question"
+      placeholder="Send a message..."
+      required
+    />
+    <button type="submit">➤</button>
+  </form>
+</div>
