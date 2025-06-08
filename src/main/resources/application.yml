@@ -1,0 +1,25 @@
+spring:
+  ai:
+    ollama:
+      base-url: http://ollama:11434
+      chat:
+        options:
+          model: llama3
+    embedding:
+      ollama:
+        model: mxbai-embed-large-v1
+    vectorstore:
+      pgvector:
+        table-name: embeddings
+        dimensions: 1024
+        index-type: hnsw
+        distance-type: cosine_distance
+        initialize-schema: true
+  datasource:
+    url: jdbc:postgresql://postgres:5432/ragdb
+    username: raguser
+    password: ragpass
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
