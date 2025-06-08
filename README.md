@@ -6,7 +6,7 @@ A full-stack **Retrieval-Augmented Generation (RAG)** application built with:
 - 🧠 **Ollama** running local LLMs (e.g. `phi3:mini`, `llama3`)
 - 📄 **PDF ingestion** and chunking with Apache PDFBox
 - 🐘 **PostgreSQL** + **pgvector** for embedding storage and vector search
-- 🌐 **Angular 19** frontend with a clean, ChatGPT-style interface
+- 🌐 **Angular 19** frontend chat interface
 
 ---
 
@@ -49,7 +49,6 @@ spring-ai-rag/
 ### Frontend
 - ✅ Angular 19 with standalone components
 - ✅ Chat-style UI
-- ✅ Typing animation (`...`)
 - ✅ PDF upload + progress feedback
 - ✅ REST integration with Spring backend
 
@@ -70,7 +69,7 @@ spring-ai-rag/
 
 ### 🔧 Prerequisites
 
-- Java 17+
+- Java 21+
 - Node.js 18+ or 20
 - Angular CLI
 - Docker + Docker Compose
@@ -129,7 +128,7 @@ ng serve
 
 Open [http://localhost:4200](http://localhost:4200)
 
-> ✅ You'll see a ChatGPT-style UI for chatting with your PDFs.
+> ✅ You'll see a UI for chatting with your PDFs.
 
 ---
 
@@ -243,20 +242,4 @@ spring:
 * [ ] Authentication and user profiles
 
 ---
-
-## 👨‍💻 Authors
-
-**Derek Taylor** – Solution Architect
-
----
-
-## 📝 License
-
-MIT — free for personal and commercial use.
-
----
-
-## 🙌 Contributing
-
-Contributions welcome! Fork the repo, submit a PR, or open an issue with suggestions or bugs.
 
