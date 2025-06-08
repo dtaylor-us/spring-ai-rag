@@ -80,10 +80,10 @@ spring-ai-rag/
 ### 🧠 1. Pull Required Models
 
 ```bash
-ollama pull phi3:mini
-ollama pull mxbai-embed-large-v1
+docker exec -it $(docker ps -qf "name=ollama") ollama pull phi3:mini
+docker exec -it $(docker ps -qf "name=ollama") ollama pull mxbai-embed-large
 # Optional:
-ollama pull llama3
+docker exec -it $(docker ps -qf "name=ollama") ollama pull llama3
 ````
 
 ---
