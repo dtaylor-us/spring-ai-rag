@@ -4,7 +4,7 @@ spring:
       base-url: http://ollama:11434
       chat:
         options:
-          model: llama3
+          model: phi3:mini
     embedding:
       ollama:
         model: mxbai-embed-large-v1
