@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import us.dtaylor.springairag.service.UploadService;
 
 import java.io.IOException;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/rag")
@@ -25,8 +26,8 @@ public class UploadController {
             description = "Extracts text from the uploaded PDF and stores embeddings in the vector store"
     )
     @PostMapping("/upload")
-    public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file) throws IOException {
+    public ResponseEntity<Map<String, String>> upload(@RequestParam("file") MultipartFile file) throws IOException {
         uploadService.upload(file);
-        return ResponseEntity.ok("PDF uploaded and indexed.");
+        return ResponseEntity.ok(Map.of("message", "PDF uploaded and indexed."));
     }
 }

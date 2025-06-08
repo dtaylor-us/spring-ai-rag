@@ -149,3 +149,8 @@ header {
 .chat-input button:hover {
   background: #006fe0;
 }
+
+.chat-controls {
+  text-align: center;
+  margin-left: 200px;
+}

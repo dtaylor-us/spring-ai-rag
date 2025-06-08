@@ -236,11 +236,11 @@ spring:
 
 ## 📋 Roadmap
 
-* [ ] File metadata display in UI
+* [ ] Chat history persistence
 * [ ] Drag-and-drop file upload
-* [ ] Multi-document context merge
-* [ ] Auth & user-specific vector stores
-* [ ] PDF preview in chat UI
+* [ ] File name and upload status list
+* [ ] Markdown rendering for answers
+* [ ] Authentication and user profiles
 
 ---
 

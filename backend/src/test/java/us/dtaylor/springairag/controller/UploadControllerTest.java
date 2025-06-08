@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import us.dtaylor.springairag.service.UploadService;
 
 import java.io.IOException;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -21,10 +22,10 @@ class UploadControllerTest {
 
         MultipartFile file = mock(MultipartFile.class);
 
-        ResponseEntity<String> response = controller.upload(file);
+        ResponseEntity<Map<String, String>> response = controller.upload(file);
 
         verify(uploadService, times(1)).upload(file);
         assertEquals(200, response.getStatusCodeValue());
-        assertEquals("PDF uploaded and indexed.", response.getBody());
+        assertEquals("PDF uploaded and indexed.", response.getBody().get("message"));
     }
 }

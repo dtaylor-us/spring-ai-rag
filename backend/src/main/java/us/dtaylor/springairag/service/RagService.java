@@ -18,7 +18,6 @@ public class RagService {
 
     public String askQuestion(String question) {
         List<String> context = vectorStoreService.findRelevant(question);
-        System.out.println("================ Context retrieved: " + context);
         String prompt = "Answer the question based only on the following context:\n"
                 + String.join("\n", context)
                 + "\nQuestion: " + question;

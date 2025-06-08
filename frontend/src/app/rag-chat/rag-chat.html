@@ -4,10 +4,28 @@
 </header>
 
 <section class="upload-section">
-  <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="application/pdf" hidden />
+  <input
+    type="file"
+    id="fileInput"
+    (change)="onFileSelected($event)"
+    accept="application/pdf"
+    hidden
+  />
   <label class="styled-button" for="fileInput">Choose PDF</label>
-  <button class="styled-button" [disabled]="!selectedFile || uploading" (click)="onUpload()">Upload PDF</button>
+  <button
+    class="styled-button"
+    [disabled]="!selectedFile || uploading"
+    (click)="onUpload()"
+  >
+    Upload PDF
+  </button>
   <div *ngIf="uploading">Uploading: {{ uploadProgress }}%</div>
+  <div class="chat-controls">
+    <button class="styled-button" (click)="clearHistory()">
+      Clear Chat History
+    </button>
+  </div>
+
 </section>
 
 <div class="chat-container">

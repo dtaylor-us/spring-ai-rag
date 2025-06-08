@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class RagService {
   private baseUrl = 'http://localhost:8080/api/v1/rag';
 
@@ -15,22 +13,29 @@ export class RagService {
   }
 
   uploadFile(file: File): Observable<number> {
-    const formData = new FormData();
-    formData.append('file', file);
+  const formData = new FormData();
+  formData.append('file', file);
 
-    return this.http.post(`${this.baseUrl}/upload`, formData, {
+  return this.http.post<{ message: string }>(
+    `${this.baseUrl}/upload`,
+    formData,
+    {
       observe: 'events',
-      reportProgress: true
-    }).pipe(
-      map(event => {
-        if (event.type === HttpEventType.UploadProgress && event.total) {
-          return Math.round((event.loaded / event.total) * 100);
-        } else if (event.type === HttpEventType.Response) {
-          return 100;
-        } else {
-          return 0;
-        }
-      })
-    );
-  }
+      reportProgress: true,
+      responseType: 'json'
+    }
+  ).pipe(
+    map(event => {
+      if (event.type === HttpEventType.UploadProgress && event.total) {
+        return Math.round((event.loaded / event.total) * 100);
+      } else if (event.type === HttpEventType.Response) {
+        console.log('✅ Upload response:', event.body?.message);
+        return 100;
+      } else {
+        return 0;
+      }
+    })
+  );
+}
+
 }

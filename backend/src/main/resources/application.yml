@@ -7,7 +7,7 @@ spring:
           model: phi3:mini
     embedding:
       ollama:
-        model: mxbai-embed-large-v1
+        model: mxbai-embed-large
     vectorstore:
       pgvector:
         table-name: embeddings
